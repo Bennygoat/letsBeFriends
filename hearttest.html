@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #heart {
+        position: relative;
+        /* fix */
+        top:20vh;
+        width: 250px;
+
+        height: 90px;
+        margin-top: 50px auto;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    #heart p {
+        /* fixed */
+        font-size: 23px;
+        font-weight: bolder;
+        position: absolute;
+        top: 40%;
+        left: 42%;
+        width: 320px;
+        color: white;
+        font-weight: bold;
+        z-index: 9999;
+        /* Ensure text stays on top */
+        text-shadow: 5px 5px 10px pink;
+    }
+
+    /* w52 h80*/
+    #heart::before,
+    #heart::after {
+
+        content: "";
+        position: absolute;
+        top: 0;
+        /* fix */
+        width: 260px;
+        /* fix */
+        height: 400px;
+        /* fix */
+        border-radius: 250px 250px 0 0;
+        background: black;
+        box-shadow: 0px 0px 80px rgb(82, 4, 164);
+
+    }
+
+    #heart::before {
+        left: 260px;
+        transform: rotate(-45deg);
+        transform-origin: 0 100%;
+    }
+
+    #heart::after {
+        left: 0;
+        transform: rotate(45deg);
+        transform-origin: 100% 100%;
+    }
+
+    @keyframes heartbeat {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.03);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    #heart{
+        animation: heartbeat 0.5s infinite;
+    }
+
+    
+</style>
+
+<body>
+    <main id="heart">
+        <!-- animation class -->
+        <p>O lonely child, I see you!<br> It's not your fault for being so friend-less after
+            a whole semester of school time.<br>Worry not!<br>This caring friendship counselor ZIH-MIN
+            is here to
+            heeeeelp<br> xoxo</p>
+    </main>
+</body>
+
+</html>
