@@ -98,16 +98,16 @@
         #heart {
             position: relative;
             /* fix */
-            top:20vh;
+            top: 20vh;
             width: 250px;
-    
+
             height: 90px;
             margin-top: 50px auto;
             justify-content: center;
             align-items: center;
             text-align: center;
         }
-    
+
         #heart p {
             /* fixed */
             font-size: 25px;
@@ -122,12 +122,12 @@
             /* Ensure text stays on top */
             text-shadow: 5px 5px 10px pink;
         }
-    
+
         /* w52 h80*/
         /* 260 400 */
         #heart::before,
         #heart::after {
-    
+
             content: "";
             position: absolute;
             top: 0;
@@ -139,54 +139,52 @@
             border-radius: 250px 250px 0 0;
             background: black;
             box-shadow: 0px 0px 80px rgb(82, 4, 164);
-    
+
         }
-    
+
         #heart::before {
             left: 330px;
             transform: rotate(-45deg);
             transform-origin: 0 100%;
         }
-    
+
         #heart::after {
             left: 0;
             transform: rotate(45deg);
             transform-origin: 100% 100%;
         }
-    
+
         @keyframes heartbeat {
             0% {
                 transform: scale(1);
             }
-    
+
             50% {
                 transform: scale(1.03);
             }
-    
+
             100% {
                 transform: scale(1);
             }
         }
-    
-        #heart{
+
+        #heart {
             animation: heartbeat 0.5s infinite;
         }
-    
-        
     </style>
     <!-- projectname style -->
-     <style>
-        #projectName{
+    <style>
+        #projectName {
             font-size: 50px;
             font-weight: bold;
             color: rgb(252, 122, 252);
             background-color: rgb(46, 65, 77);
             border: 2px solid rgb(0, 0, 26);
-            box-shadow: 0px 0px 100px lightseagreen ;
+            box-shadow: 0px 0px 100px lightseagreen;
             text-shadow: 3px 3px 3px blue;
             border-radius: 53px;
         }
-     </style>
+    </style>
 </head>
 
 
@@ -215,31 +213,34 @@
 
     <header class="pb-4 mb-4">
         <div class=" d-flex justify-content-around pt-4">
-            <!-- 加入動畫 -->
+            <!-- 考慮加入動畫 -->
             <div class="d-flex" id="heartMove">
                 <h3 class="float-md-start" id="projectName">Let's Be Friends</h3>
             </div>
 
             <nav class="nav nav-masthead justify-content-center float-md-end">
-                <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="#">Home</a>
-                <a class="nav-link fw-bold py-1 px-0" href="/classroom.html">Classroom</a>
-                <a class="nav-link fw-bold py-1 px-0" href="/whosYourClassmate.html">Training Section</a>
-                <a class="nav-link fw-bold py-1 px-0" href="/makeWish.html">Wishing Well</a>
-                <a class="nav-link fw-bold py-1 px-0" href="#">LogIn</a>
+                <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="./index.html" id='home'>Home</a>
+                <a class="nav-link fw-bold py-1 px-0" href="/classroom.html" id="classroom">Classroom</a>
+                <a class="nav-link fw-bold py-1 px-0" href="/whosYourClassmate.html" id="trainingSection">Training
+                    Section</a>
+                <a class="nav-link fw-bold py-1 px-0" href="/makeWish.html" id="wishingWell">Wishing Well</a>
+                <a class="nav-link fw-bold py-1 px-0" href="#logInModal" id="logIn" data-bs-toggle="modal">LogIn</a>
             </nav>
         </div>
     </header>
 
 
     <!-- 以下改掉設定，設一個三欄grid，左下小人，右上太陽或神像，中間再放原始div原始div文字 -->
-    <div class="row row-cols-4 h-100">
-        <div class="col-1 justify-content-center align-content-center">
-            <img src="/img/classmates/images-removebg-preview.png" class="mt-auto" style="width: 350px;">
+    <div class="row row-cols-4 h-100" id="mainContent">
+        <div class="col-1 justify-content-center align-content-center align-items-center">
+            <p id="userName" style="font-size: 50px; color: aqua; text-shadow: #5a23c8"></p>
+            <img src="/img/classmates/mainCharacter.png" class="mt-auto" style="width: 350px;">
         </div>
         <div class="col-2 cover-container d-flex w-100 h-100 p-2 mx-auto flex-column">
             <main class="px-3" id="heart">
                 <!-- animation class -->
-                <p>O lonely child, I see you!<br> It's not your fault for being so friend-less<br>You just don't have it, so^^<br>Worry not!<br>This caring friendship counselor ZIH-MIN
+                <p>O lonely child, I see you!<br> It's not your fault for being so friend-less<br>You just don't have
+                    it, so^^<br>Worry not!<br>This caring friendship counselor ZIH-MIN
                     is here to
                     heeeeelp<br> xoxo</p>
             </main>
@@ -249,8 +250,29 @@
                         target="_blank">@ZIH-MIN, YANG</a>.</p>
             </footer>
         </div>
-        <div class="col-1 justify-content-start align-content-start" >
+        <div class="col-1 justify-content-start align-content-start">
             <img src="/img/classmates/R-removebg-preview.png" style="width: 75px; margin-right: 100px;">
+        </div>
+    </div>
+
+    <div class="modal" tabindex="-1" id="logInModal">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background-color: rgb(255, 107, 216) ">
+                <div class="modal-header">
+                    <h5 class="modal-title">Log In</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form>
+                    <div class="modal-body row" style="text-align: left;">
+                        <p>We're still working on it! Sorry~</p>
+                        <input type="text" class="form-control" id="inputName" placeholder="But who are you exactly?" >
+                        <div class="modal-footer">
+                            <button type="reset" class="btn btn-light" id="Bye" data-bs-dismiss="modal">Bye</button>
+                            <button type="button" class="btn btn-danger" id="tempLogIn" data-bs-dismiss="modal">View as Visitor</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
@@ -258,9 +280,8 @@
 
 
 
-
-    </div>
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="./main.js"></script>
 
 </body>
 
