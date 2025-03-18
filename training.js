@@ -6,7 +6,7 @@
 // 6. friendlist長度 = 0，跳出全部答題完畢，請去交新朋友
 
 // basic data setting
-const friendList = JSON.parse(localStorage.getItem("friendData")) || [];
+let friendList = JSON.parse(localStorage.getItem("friendData")) || [];
 let quizNums = friendList.length;
 //
 let randomQuizIndex = Math.floor(Math.random() * quizNums);
@@ -15,35 +15,51 @@ let randomQuiz = null;
 let quizAnswer = "";
 
 // function pop a random quiz
-function popQuestion(aRandomNum, quizNums = quizNums) {
+function popQuestion(aRandomNum) {
   if (quizNums) {
     // default quiz
     selectedQuizIndex.push(aRandomNum);
-    randomQuiz = friendList[selectedQuizIndex];
+    randomQuiz = friendList[selectedQuizIndex[0]];
     quizImg.src = randomQuiz.photo;
     quizAnswer = randomQuiz.name;
+    console.log("randomQuiz:", randomQuiz, "selectedQuizIndex:", selectedQuizIndex)
     return selectedQuizIndex;
   } else {
     // quizNums = 0 situation
-    alert("All the questions have been answered!");
+    alert("No more Questions");
   }
 }
 
-// ask again data modify function
+// ask again data modify function 
+function nextQuestion(removeIndex) {
+  // delete quiz and reload quiz
+  friendList.splice(removeIndex, 1)
+  quizNums = friendList.length
+  selectedQuizIndex.pop()
+  randomQuizIndex = Math.floor(Math.random() * quizNums)
+  popQuestion(randomQuizIndex)
+}
 
 window.addEventListener("load", (e) => {
   popQuestion(randomQuizIndex);
 });
 
-// submitBtn.addEventListener("click", (e) => {
-//   let answer = answerInput.value.trim();
-//   if (answer === randomQuiz.name) {
-//     alert("congrats");
-//     friendList.splice(selectedQuizIndex[0], 1);
-//     selectedQuizIndex.pop();
-//   }
-// });
 
+submitBtn.addEventListener("click", (e) => {
+  let answer = answerInput.value.trim();
+  if (answer === quizAnswer) {
+    alert("Basic");
+    nextQuestion(selectedQuizIndex);
+  } else {
+    alert("You can do better")
+  }
+});
+
+
+nextQBtn.addEventListener("click", (e) => {
+  alert("You can do better")
+  nextQuestion(selectedQuizIndex);
+});
 // submitBtn.onclick = (e) => {
 //   e.preventDefault();
 //   let answer = answer.value.trim();
@@ -54,3 +70,5 @@ window.addEventListener("load", (e) => {
 //     alert("congrats");
 //   }
 // };
+
+
