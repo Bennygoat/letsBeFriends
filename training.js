@@ -22,28 +22,26 @@ function popQuestion(aRandomNum) {
     randomQuiz = friendList[selectedQuizIndex[0]];
     quizImg.src = randomQuiz.photo;
     quizAnswer = randomQuiz.name;
-    console.log("randomQuiz:", randomQuiz, "selectedQuizIndex:", selectedQuizIndex)
     return selectedQuizIndex;
   } else {
     // quizNums = 0 situation
-    alert("No more Questions");
+    alert("No more questions");
   }
 }
 
-// ask again data modify function 
+// ask again data modify function
 function nextQuestion(removeIndex) {
   // delete quiz and reload quiz
-  friendList.splice(removeIndex, 1)
-  quizNums = friendList.length
-  selectedQuizIndex.pop()
-  randomQuizIndex = Math.floor(Math.random() * quizNums)
-  popQuestion(randomQuizIndex)
+  friendList.splice(removeIndex, 1);
+  quizNums = friendList.length;
+  selectedQuizIndex.pop();
+  randomQuizIndex = Math.floor(Math.random() * quizNums);
+  popQuestion(randomQuizIndex);
 }
 
 window.addEventListener("load", (e) => {
   popQuestion(randomQuizIndex);
 });
-
 
 submitBtn.addEventListener("click", (e) => {
   let answer = answerInput.value.trim();
@@ -51,13 +49,12 @@ submitBtn.addEventListener("click", (e) => {
     alert("Basic");
     nextQuestion(selectedQuizIndex);
   } else {
-    alert("You can do better")
+    alert("You can do better");
   }
 });
 
-
 nextQBtn.addEventListener("click", (e) => {
-  alert("You can do better")
+  alert("You can do better");
   nextQuestion(selectedQuizIndex);
 });
 // submitBtn.onclick = (e) => {
@@ -70,5 +67,3 @@ nextQBtn.addEventListener("click", (e) => {
 //     alert("congrats");
 //   }
 // };
-
-
