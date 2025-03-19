@@ -25,6 +25,11 @@
 
   <!-- projectname style -->
   <style>
+    html,
+    body {
+      height: 100%;
+    }
+
     #projectName {
       font-size: 50px;
       font-weight: bold;
@@ -35,11 +40,21 @@
       text-shadow: 3px 3px 3px blue;
       border-radius: 53px;
     }
+
+    #mainContent {
+      display: flex;
+      text-align: center;
+      flex-direction: column;
+      height: 70%;
+      width: 30%;
+      justify-content: center;
+      align-items: center;
+    }
+
   </style>
 </head>
 
-<body class="d-flex h-100 text-center flex-column"
-  style="background: url(/img/lonely.jpg) no-repeat; background-size: cover">
+<body class="d-flex h-100 text-center flex-column" style="background: url(/img/lonely.jpg) no-repeat; background-size: cover">
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
     <symbol id="check2" viewBox="0 0 16 16">
       <path
@@ -85,15 +100,18 @@
 
   <!-- 以下加入form -->
 
-  <div class="container d-flex flex-column h-100 text-center justify-content-center align-items-center"
+<div id="formMom" class="w-100 h-100 d-flex justify-content-center ">
+  <div
+    class="form"
     id="mainContent">
-    <div class="row w-100 h-50 justify-content-center">
-      <div id="imgHolder" class="col-12 mb-3">
-        <img src="" alt="" class="img-fluid" id="quizImg" style="object-fit: cover" />
-      </div>
-    </div>
 
-    <div class="row justify-content-center" style="width: 35%">
+    <!-- <div class="row w-100 h-50 justify-content-center"> -->
+    <div id="imgHolder" class="mb-3">
+      <img src="" alt="" class="img-fluid" id="quizImg" style="object-fit: cover" />
+    </div>
+    <!-- </div> -->
+
+    <div class="row justify-content-center" style="width: 50%">
       <div class="col-12 mb-3">
         <input type="text" id="answerInput" class="form-control text-center"
           style="background-color: transparent; color: white" placeholder="Name?" />
@@ -101,7 +119,7 @@
     </div>
 
     <div class="row w-75 justify-content-center">
-      <div class="col-6 d-flex justify-content-between">
+      <div class="d-flex justify-content-between">
         <button id="nextQBtn" class="button-49" role="button">
           Next Question
         </button>
@@ -110,6 +128,9 @@
     </div>
 
   </div>
+</div>
+
+  
 
   <footer class="mt-auto text-white-50">
     <p>

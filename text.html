@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <!-- ex css檔 -->
+  <link href="cover.css" rel="stylesheet" />
+      <!-- form css -->
+  <link rel="stylesheet" href="./form.css" />
+
+  <!-- 引用button CSS -->
+  <link rel="stylesheet" href="./button.css" />
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+        body{
+            display: flex;
+            text-align: center;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 3px red solid;
+        }
+        #mainContent{
+            display: flex;
+            text-align: center;
+            flex-direction: column;
+            border: 2px green solid;
+            height: 50%;
+            width: 30%;
+            justify-content: center;
+            align-items: center;
+        }
+        button,img,input{
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body >
+    <div  
+        id="mainContent">
+
+        <!-- <div class="row w-100 h-50 justify-content-center"> -->
+        <div id="imgHolder" class="mb-3">
+            <img src="./img/笑臉.png" alt="" class="img-fluid" id="quizImg" style="object-fit: cover" />
+        </div>
+        <!-- </div> -->
+
+        <div class="row justify-content-center" style="width: 35%">
+            <div class="col-12 mb-3">
+                <input type="text" id="answerInput" class="form-control text-center"
+                    style="background-color: transparent; color: white" placeholder="Name?" />
+            </div>
+        </div>
+
+        <div class="row w-75 justify-content-center">
+            <div class="col-6 d-flex justify-content-between">
+                <button id="nextQBtn" class="button-49" role="button">
+                    Next Question
+                </button>
+                <button id="submitBtn" class="button-49" role="button">Submit</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

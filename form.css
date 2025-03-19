@@ -14,7 +14,6 @@
     box-sizing: border-box;
     height: 500px;
     padding: 20px;
-    width: 320px;
 }
 
 .title {
@@ -61,7 +60,7 @@
     outline: 0;
     padding: 4px 20px 0;
     width: 50%;
-    border: green 1px solid;
+    border: green 2px solid;
 
 }
 
@@ -119,12 +118,12 @@
     box-sizing: border-box;
     color: black;
     cursor: pointer;
-    font-size: 18px;
-    height: 50px;
-    margin-top: 38px;
+    font-size: 20px;
+    height: 4rem;
+    margin-top: 1rem;
     outline: 0;
     text-align: center;
-    width: 80px;
+    width: 8rem;
 }
 
 .submit:active {

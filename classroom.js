@@ -23,12 +23,13 @@ resetBtn.onclick = () => {
 
 pseudoFriendsBtn.onclick = () => {
     photoAlbum.innerHTML = ''
-    axios.get('https://randomuser.me/api/?results=6')
-        .then((r) => {
-            console.log(r)
-            let fakeFriendlist = [...r.data.results]
-            fakeFriendlist.map((fakeFriend) => {
-                photoAlbum.innerHTML += `
+    let preventDoubbleData = new Promise((resolve, reject) => {
+        axios.get('https://randomuser.me/api/?results=6')
+            .then((r) => {
+                console.log(r)
+                let fakeFriendlist = [...r.data.results]
+                fakeFriendlist.map((fakeFriend) => {
+                    photoAlbum.innerHTML += `
             <div class="col">
                 <div class="card text-bg-dark m-4" style="width: 18rem;">
                     <img src="${fakeFriend.picture.medium}" class="card-img-top" alt="..." />
@@ -39,9 +40,13 @@ pseudoFriendsBtn.onclick = () => {
                 </div>
             </div>
         `
+                })
             })
-        })
-    friendlist = JSON.parse(localStorage.getItem("friendData"))
+            resolve()
+    })
+    preventDoubbleData.then(() => {
+        friendlist = JSON.parse(localStorage.getItem("friendData"))
+    })
 }
 
 
