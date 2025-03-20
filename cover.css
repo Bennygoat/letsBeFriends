@@ -12,6 +12,7 @@
 }
 
 
+
 /*
  * Base structure
  */
@@ -33,6 +34,7 @@ body {
 .nav-masthead .nav-link {
   color: rgba(255, 255, 255, .5);
   border-bottom: .25rem solid transparent;
+
 }
 
 .nav-masthead .nav-link:hover,
@@ -44,13 +46,8 @@ body {
   margin-left: 1rem;
 }
 
-.nav-masthead .active {
+/* .nav-masthead .active {
   color: #fff;
   border-bottom-color: #fff;
-}
+} */
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}

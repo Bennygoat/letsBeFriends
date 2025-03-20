@@ -26,12 +26,30 @@ window.onload = () => {
   }
 };
 
-// render fake friends
+// if login mainCharacter moves
 
-// render submit friends + fake friends
+playround.addEventListener("click", moveMainCharacter);
 
-// remove fake friends
-
-// random question(show submit friend photo)
-
-// move main character, flip
+function moveMainCharacter(e) {
+  let characterX = e.clientX;
+  let characterY = e.clientY;
+  let nameX = characterX;
+  let nameY = characterY;
+  console.log(
+    " mainCharacter.offsetWidth: " +
+      mainCharacter.offsetWidth +
+      " mainCharacter.offsetHeight: " +
+      mainCharacter.offsetHeight +
+      " characterX: " +
+      characterX +
+      " characterY: " +
+      characterY
+  );
+  if (userName.innerText !== "") {
+    let mainCharacterPosition =
+      "translate(" + e.clientX + "px, " + e.clientY + "px)";
+    let namePosition = "translate(" + nameX + "px, " + nameY + "px)";
+    mainCharacter.style.transform = mainCharacterPosition;
+    userName.style.transform = namePosition;
+  }
+}
