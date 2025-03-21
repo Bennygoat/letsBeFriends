@@ -5,7 +5,9 @@ photoFileUploader.addEventListener("change", (e) => {
   const reader = new FileReader();
   reader.readAsDataURL(file);
   reader.onload = () => {
-    preview.src = reader.result;
+    // 為什麼不行這樣改，原本是改掉inputImgLabel的display
+    // inputImgLabel.style.display = 'value'
+    preview.src = reader.result;   
   };
 });
 

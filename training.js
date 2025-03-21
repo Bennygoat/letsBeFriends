@@ -21,6 +21,9 @@ function popQuestion(aRandomNum) {
     selectedQuizIndex.push(aRandomNum);
     randomQuiz = friendList[selectedQuizIndex[0]];
     quizImg.src = randomQuiz.photo;
+    // 沒功能
+    mainContent.style.background = `url('${randomQuiz.photo}') no-repeat;`
+    mainContent.style.backgroundSize = 'cover'
     quizAnswer = randomQuiz.name;
     return selectedQuizIndex;
   } else {
@@ -57,13 +60,9 @@ nextQBtn.addEventListener("click", (e) => {
   alert("You can do better");
   nextQuestion(selectedQuizIndex);
 });
-// submitBtn.onclick = (e) => {
-//   e.preventDefault();
-//   let answer = answer.value.trim();
-//   console.log(answer);
-//   console.log(randomQuiz.name);
 
-//   if (answer === randomQuiz.name) {
-//     alert("congrats");
-//   }
-// };
+
+
+
+
+

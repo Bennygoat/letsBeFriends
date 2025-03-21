@@ -19,12 +19,14 @@ Bye.addEventListener("click", () => {
   inputName.value = "";
 });
 
+let savedUser = localStorage.getItem("USER")
 window.onload = () => {
-  let savedUser = localStorage.getItem("USER");
   if (savedUser && savedUser.trim() !== "") {
     userName.innerText = savedUser;
   }
 };
+
+
 
 // if login mainCharacter moves
 
@@ -35,6 +37,7 @@ function moveMainCharacter(e) {
   let characterY = e.clientY;
   let nameX = characterX;
   let nameY = characterY;
+
   console.log(
     " mainCharacter.offsetWidth: " +
       mainCharacter.offsetWidth +
@@ -45,6 +48,7 @@ function moveMainCharacter(e) {
       " characterY: " +
       characterY
   );
+
   if (userName.innerText !== "") {
     let mainCharacterPosition =
       "translate(" + e.clientX + "px, " + e.clientY + "px)";
@@ -53,3 +57,5 @@ function moveMainCharacter(e) {
     userName.style.transform = namePosition;
   }
 }
+
+
