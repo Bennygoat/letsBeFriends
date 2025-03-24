@@ -1,13 +1,13 @@
 let friendlist = JSON.parse(localStorage.getItem("friendData")) || [];
-let isFakeFriends = true
-
+let isFakeFriends = true;
 
 realLifeFriendsBtn.onclick = () => {
-    if (isFakeFriends) {
-        realFriendlisthtml = "";
-        friendlist = JSON.parse(localStorage.getItem("friendData"))
-        friendlist.forEach((friend) => {
-            realFriendlisthtml += `
+  photoAlbum.innerHTML = "";
+  if (isFakeFriends) {
+    realFriendlisthtml = "";
+    friendlist = JSON.parse(localStorage.getItem("friendData"));
+    friendlist.forEach((friend) => {
+      realFriendlisthtml += `
             <div class="card text-bg-dark m-4" style="width: 18rem; height: 18rem">
             <img src="${friend.photo}" class="card-img cover" alt="..." />
             <div class="card-img-overlay" >
@@ -16,33 +16,31 @@ realLifeFriendsBtn.onclick = () => {
             </div>
             </div>
             `;
-        })
-        photoAlbum.innerHTML = realFriendlisthtml
-        isFakeFriends = false
-    } else {
-        return
-    }
+    });
+    photoAlbum.innerHTML = realFriendlisthtml;
+    isFakeFriends = false;
+  } else {
+    return;
+  }
 };
 
 resetBtn.onclick = () => {
-    photoAlbum.innerHTML = "";
-    friendlist = JSON.parse(localStorage.getItem("friendData"));
-    isFakeFriends = true
+  photoAlbum.innerHTML = "";
+  friendlist = JSON.parse(localStorage.getItem("friendData"));
+  isFakeFriends = true;
 };
 
-
-
 let getData = () => {
-    return axios.get("https://randomuser.me/api/?results=6")
- }
+  return axios.get("https://randomuser.me/api/?results=6");
+};
 
 pseudoFriendsBtn.onclick = async () => {
-    try {
-        let response = await getData()
-        let fakeFriendlist = [...response.data.results]
-        fakeFriendlisthtml = ""
-        fakeFriendlist.forEach((fakeFriend) => {
-            fakeFriendlisthtml += `
+  try {
+    let response = await getData();
+    let fakeFriendlist = [...response.data.results];
+    fakeFriendlisthtml = "";
+    fakeFriendlist.forEach((fakeFriend) => {
+      fakeFriendlisthtml += `
             <div class="card text-bg-dark m-4" style="width: 18rem; height: 18rem">
             <img src="${fakeFriend.picture.medium}" class="card-img cover" alt="..." />
             <div class="card-img-overlay" >
@@ -51,12 +49,10 @@ pseudoFriendsBtn.onclick = async () => {
             </div>
             </div>
             `;
-        })
-        photoAlbum.innerHTML = fakeFriendlisthtml
-        isFakeFriends = true;
-    } catch(error){
-        console.log('something went wrong:', error )
-    }
+    });
+    photoAlbum.innerHTML = fakeFriendlisthtml;
+    isFakeFriends = true;
+  } catch (error) {
+    console.log("something went wrong:", error);
+  }
 };
-
-
