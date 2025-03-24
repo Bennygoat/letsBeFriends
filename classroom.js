@@ -9,7 +9,7 @@ realLifeFriendsBtn.onclick = () => {
     friendlist.forEach((friend) => {
       realFriendlisthtml += `
             <div class="card text-bg-dark m-4" style="width: 18rem; height: 18rem">
-            <img src="${friend.photo}" class="card-img cover" alt="..." />
+            <img src="${friend.photo}" class="card-img cover" style="width: 18rem; height: 18rem" alt="..." />
             <div class="card-img-overlay" >
             <h5 class="">${friend.name}</h5>
             <p class="card-text"><small>Location: ${friend.location}</small></p>

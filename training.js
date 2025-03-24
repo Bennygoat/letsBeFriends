@@ -22,8 +22,9 @@ function popQuestion(aRandomNum) {
     randomQuiz = friendList[selectedQuizIndex[0]];
     quizImg.src = randomQuiz.photo;
     // 沒功能
-    mainContent.style.background = `url('${randomQuiz.photo}') no-repeat;`
-    mainContent.style.backgroundSize = 'cover'
+    // mainContent.style.background = `url('${randomQuiz.photo}') no-repeat;`
+    // mainContent.style.background = `url('./img/笑臉.png') no-repeat;`
+    // mainContent.style.backgroundSize = 'cover'
     quizAnswer = randomQuiz.name;
     return selectedQuizIndex;
   } else {
